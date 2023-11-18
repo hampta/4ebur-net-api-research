@@ -127,7 +127,7 @@ class Client:
 
 client = Client(device_type=DeviceType.ANDROID)
 
-for i in range(13, 16):
+for i in range(0, 16):
     license_key = client.register_user()["licenseKey"]
     print(f"License key: {license_key}")
     client.login_user(license_key)
@@ -135,7 +135,7 @@ for i in range(13, 16):
     zones = client.get_zones()
     for zone in zones:
         if zone["nodeIsAvailable"]:
-            node = client.get_nodes(regionId=zone["regionId"])
+            node = client.get_nodes(regionId=zone["regionId"], serverProtocol=zone["serverProtocol"])
             if not os.path.exists(f'./confs{i}'):
                 os.mkdir(f'./confs{i}')
             with open(f'./confs{i}/{node["regionCode"]}.conf', 'w') as file:

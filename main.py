@@ -13,7 +13,7 @@ from graphql_sdk import SDK
 class Client:
     def __init__(self, access_token=None, refresh_token=None, license_key=None,
                  device_type: DeviceType = DeviceType.WINDOWS, unique_id=None):
-        self.endpoint = "https://api.quarielana.xyz/graphql"
+        self.endpoint = "https://api.udellavond.bio/graphql"
         self._access_token = access_token
         self._refresh_token = refresh_token
         self._license_key = license_key
